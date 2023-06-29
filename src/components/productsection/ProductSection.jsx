@@ -6,16 +6,16 @@ const ProductSection = () => {
     const [productData, setProductData] = useState([])
 
     useEffect(() => {
-        fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a")
+        fetch("https://api.punkapi.com/v2/beers")
         .then((res) => res.json())
-        .then((data) => setProductData(data.drinks))
+        .then((data) => setProductData(data))
     }, {})
 
     console.log(productData)
     
     return <div className="product__section">
-        {productData.map((drink) => {
-            return <DrinkCard data={drink}/>
+        {productData.map((beer) => {
+            return <DrinkCard data={beer}/>
         })}
     </div>
 
