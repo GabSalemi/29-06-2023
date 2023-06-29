@@ -13,7 +13,7 @@ const ProductSection = () => {
 
     console.log(productData)
     
-    return <div>
+    return <div className="product__section">
         {productData.map((drink) => {
             return <DrinkCard data={drink}/>
         })}
