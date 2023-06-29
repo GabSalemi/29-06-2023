@@ -11,11 +11,10 @@ const ProductSection = () => {
         .then((data) => setProductData(data))
     }, {})
 
-    console.log(productData)
     
     return <div className="product__section">
         {productData.map((beer) => {
-            return <DrinkCard data={beer}/>
+            return <DrinkCard data={beer} key={beer.id}/>
         })}
     </div>
 
