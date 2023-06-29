@@ -1,0 +1,32 @@
+.drink__card {
+    width: 100px;
+    height: 500px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.drink__img {
+    position: relative;
+}
+
+.drink__img img {
+    top: -500px;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    z-index: 1;
+    
+}
+
+.ingredients__list {
+    list-style: none;
+}
+
+
+
+
