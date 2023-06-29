@@ -1,16 +1,20 @@
 .drink__card {
-    width: 100px;
+    width: 160px;
     height: 500px;
-    
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
-    flex-wrap: wrap;
+    position: relative;
+    border-radius: 12px;
+    background-color: rgb(216, 209, 209);
 }
 
 .drink__img {
-    position: relative;
+    position: absolute;
+    bottom: 0;
+    left: 2px;
+    border-radius: 12px;
 }
 
 .drink__img img {
@@ -20,11 +24,12 @@
     height: 200px;
     object-fit: cover;
     z-index: 1;
-    
+    border-radius: 12px;
 }
 
 .ingredients__list {
     list-style: none;
+    color: #e99be9;
 }
 
 
