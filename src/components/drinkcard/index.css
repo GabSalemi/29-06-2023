@@ -3,7 +3,7 @@
     height: 500px;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     position: relative;
     border-radius: 12px;
@@ -11,6 +11,8 @@
 }
 
 .drink__img {
+    width: 100%;
+    height: 40%;
     position: absolute;
     bottom: 0;
     left: 2px;
@@ -22,7 +24,7 @@
     left: 0;
     width: 100%;
     height: 200px;
-    object-fit: cover;
+    object-fit: contain;
     z-index: 1;
     border-radius: 12px;
 }
@@ -33,5 +35,11 @@
 }
 
 
-
+.name__div {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
 
