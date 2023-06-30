@@ -1,10 +1,10 @@
 .drink__card {
     width: 160px;
-    height: 500px;
+    height: 300px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     position: relative;
     border-radius: 12px;
     background-color: rgb(216, 209, 209);

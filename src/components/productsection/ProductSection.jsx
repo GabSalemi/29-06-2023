@@ -2,11 +2,13 @@ import "./index.css";
 import { useState, useEffect } from "react";
 import DrinkCard from "../drinkcard";
 import ProductInfo from "../productinfo";
+import Filters from "../filters";
 
 const ProductSection = () => {
     const [productData, setProductData] = useState([])
     const [searchInputValue, setSearchInputValue] = useState("")
     const [filteredProduct, setFilteredProduct] = useState("")
+    const [categoryFilter, setCategoryFilter] = useState("american", "pilsen", "belgian", "german")
 
     useEffect(() => {
         fetch("https://api.punkapi.com/v2/beers")
@@ -26,18 +28,17 @@ const ProductSection = () => {
    
     return <>
         <input type="text" className="search__input"  value={searchInputValue} onChange={onInputChange}></input>
-        <div> 
-            <ProductInfo data={filteredProduct}/>
+        {< Filters productData={productData} setProductData={setProductData}/>}
+        <div className="product__page">
+            <div className="selected__product"> 
+                <ProductInfo data={filteredProduct}/>
+            </div>
+            <div className="product__section">
+                    {productData.map((beer) => {
+                        return <DrinkCard data={beer} key={beer.id}/>
+                    })}
+            </div> 
         </div>
-    <div className="product__section">
-        <div className="product-list__section">
-            {productData.map((beer) => {
-                return <DrinkCard data={beer} key={beer.id}/>
-            })}
-        </div>
-       
-        
-    </div> 
     </>
 
 }
