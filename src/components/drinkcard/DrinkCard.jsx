@@ -5,7 +5,7 @@ const DrinkCard = ({data}) => {
         <div className="info__container">
             <div className="name__div"> 
                 <h2>{data.name}</h2>
-                <h4>{data.tagline}</h4>
+                <h4>{data.ingredients.yeast}</h4>
             </div>
         </div>
         <div className="drink__img">
