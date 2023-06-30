@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Navbar from './components/navbar'
 import ProductSection from './components/productsection'
+import LoadPage from './components/loadpage'
 
 function App() {
   const [count, setCount] = useState(0)

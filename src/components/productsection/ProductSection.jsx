@@ -19,17 +19,15 @@ const ProductSection = () => {
     const onInputChange = (e) => {
         e.preventDefault()
         setSearchInputValue(e.target.value)
-        let selectedProducts = productData.filter(product => product.name.toLowerCase().includes(searchInputValue))
+        let selectedProducts = productData.filter(product => product.name.toLowerCase().includes(searchInputValue.toLowerCase()))
         setFilteredProduct(selectedProducts[0])
     }
 
    
     return <>
-        <input type="text" className="search__input"  onChange={onInputChange}></input>
-        <div>
-            {filteredProduct.length === 0 ? 
-            <ProductInfo data={""}/> : 
-            <ProductInfo data={filteredProduct}/>}
+        <input type="text" className="search__input"  value={searchInputValue} onChange={onInputChange}></input>
+        <div> 
+            <ProductInfo data={filteredProduct}/>
         </div>
     <div className="product__section">
         <div className="product-list__section">
