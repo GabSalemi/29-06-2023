@@ -2,6 +2,7 @@ import "./index.css";
 import { useState } from "react";
 import ProductSection from "../productsection";
 import ContactSection from "../contactsection";
+import LoadPage from "../loadpage";
 
 const Navbar = () => {
 
@@ -10,7 +11,7 @@ const Navbar = () => {
     const changeRender = () => {
         switch (renderValue) {
             case "": 
-                return <div>Load Page</div>
+                return <LoadPage />
             case "Home":
                 return <ProductSection />;
             case "About":
@@ -30,7 +31,7 @@ const Navbar = () => {
                 <ul className="menu__list">
                    <li onClick={() => setRenderValue("Home")}>Home</li>
                    <li onClick={() => setRenderValue("About")}>About</li> 
-                   <li onClick={() => setRenderValue("Contact")}>Contact Us</li>
+                   <li onClick={() => setRenderValue("Contact")}>Contact</li>
                 </ul>
             </div>
         </div>
