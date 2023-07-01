@@ -41,24 +41,6 @@ const ProductSection = () => {
         })   
     }
 
-    const [esempio, setEsempio] = useState([{
-        id: 1,
-        b: false,
-    }, {
-        id: 2,
-        b: false,
-    }])
-
-    const onClick = (id) => {
-        setEsempio((prev) => prev.map((obj) => {if (obj.id === id && obj.b === true) {
-            obj.b = false} else if (obj.id === id && obj.b !== true) {
-                obj.b = true
-            }
-            return 
-        }))
-        
-        
-    }
 
 
 
@@ -70,7 +52,7 @@ const ProductSection = () => {
         {categoryFilter.map((category) => (
             <div className="checkbox_filter" key={category.id}>
                 <label htmlFor={category.value} >{category.value}</label>
-                <input type="checkbox" name={category.value}  checked={category.isChecked} onChange={() => onClick(category.id)}/>
+                <input type="checkbox" name={category.value}  checked={category.isChecked} onChange={() => onCheck(category.id)}/>
             </div>
         ))}
         <div className="product__page">

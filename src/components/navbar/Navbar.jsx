@@ -3,6 +3,7 @@ import { useState } from "react";
 import ProductSection from "../productsection";
 import ContactSection from "../contactsection";
 import LoadPage from "../loadpage";
+import FilteredProduct from "../filteredproducts/FilteredProducts";
 
 const Navbar = () => {
 
@@ -15,7 +16,7 @@ const Navbar = () => {
             case "Home":
                 return <ProductSection />;
             case "About":
-                return <div>In manutenzione</div>
+                return <FilteredProduct />
             case "Contact": 
                 return <ContactSection />
         }
