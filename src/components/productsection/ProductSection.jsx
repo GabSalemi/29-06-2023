@@ -2,18 +2,20 @@ import "./index.css";
 import { useState, useEffect } from "react";
 import DrinkCard from "../drinkcard";
 import ProductInfo from "../productinfo";
-import Filters from "../filters";
+
 
 const ProductSection = () => {
     const [productData, setProductData] = useState([])
     const [searchInputValue, setSearchInputValue] = useState("")
     const [filteredProduct, setFilteredProduct] = useState("")
     const [categoryFilter, setCategoryFilter] = useState([
-        {value: "american", isChecked: true},
-        {value: "pilsen", isChecked: true}, 
-        {value: "belgian", isChecked: true},
-        {value: "german", isChecked: true}
+        {id: 1, value: "american", isChecked: false},
+        {id: 2, value: "pilsen", isChecked: false}, 
+        {id: 3, value: "belgian", isChecked: false},
+        {id: 4, value: "german", isChecked: false}
     ])
+    const [filterCheck, setFilterCheck] = useState(categoryFilter)
+
 
 
     useEffect(() => {
@@ -29,25 +31,48 @@ const ProductSection = () => {
         setFilteredProduct(selectedProducts[0])
     }
 
-    const onHandleCheckAmerican = (e) => {
-        e.preventDefault()
-        setCategoryFilter({})
-        console.log(categoryFilter)
+    const onCheck = (id) => {
+      
+        setFilterCheck((prev) => {
+            prev.map((filter) => {
+                if (filter.id === id) {
+                 filter.isChecked = !filter.isChecked} 
+            })
+        })   
+    }
 
+    const [esempio, setEsempio] = useState([{
+        id: 1,
+        b: false,
+    }, {
+        id: 2,
+        b: false,
+    }])
+
+    const onClick = (id) => {
+        setEsempio((prev) => prev.map((obj) => {if (obj.id === id && obj.b === true) {
+            obj.b = false} else if (obj.id === id && obj.b !== true) {
+                obj.b = true
+            }
+            return 
+        }))
+        
         
     }
+
+
 
     
 
 
     return <>
         <input type="text" className="search__input"  value={searchInputValue} onChange={onInputChange}></input>
-        <form className="filters__div">
-            <input type="checkbox" name="American" checked={categoryFilter[0].isChecked} onChange={onHandleCheckAmerican} />
-            <input type="checkbox" name="Pilsen" checked={categoryFilter[1].isChecked}/>
-            <input type="checkbox" name="Belgian" checked={categoryFilter[2].isChecked} />
-            <input type="checkbox" name="German" checked={categoryFilter[3].isChecked} />
-        </form>
+        {categoryFilter.map((category) => (
+            <div className="checkbox_filter" key={category.id}>
+                <label htmlFor={category.value} >{category.value}</label>
+                <input type="checkbox" name={category.value}  checked={category.isChecked} onChange={() => onClick(category.id)}/>
+            </div>
+        ))}
         <div className="product__page">
             <div className="selected__product"> 
                 <ProductInfo data={filteredProduct}/>
