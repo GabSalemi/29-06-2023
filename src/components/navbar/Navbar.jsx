@@ -3,7 +3,7 @@ import { useState } from "react";
 import ProductSection from "../productsection";
 import ContactSection from "../contactsection";
 import LoadPage from "../loadpage";
-import FilteredProduct from "../filteredproducts/FilteredProducts";
+import FilteredProduct from "../filteredproducts";
 
 const Navbar = () => {
 
@@ -15,7 +15,7 @@ const Navbar = () => {
                 return <LoadPage />
             case "Home":
                 return <ProductSection />;
-            case "About":
+            case "Categories":
                 return <FilteredProduct />
             case "Contact": 
                 return <ContactSection />
@@ -31,7 +31,7 @@ const Navbar = () => {
             <div className="menu__div">
                 <ul className="menu__list">
                    <li onClick={() => setRenderValue("Home")}>Home</li>
-                   <li onClick={() => setRenderValue("About")}>About</li> 
+                   <li onClick={() => setRenderValue("Categories")}>Categories</li> 
                    <li onClick={() => setRenderValue("Contact")}>Contact</li>
                 </ul>
             </div>
