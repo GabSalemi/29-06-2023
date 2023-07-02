@@ -8,13 +8,6 @@ const ProductSection = () => {
     const [productData, setProductData] = useState([])
     const [searchInputValue, setSearchInputValue] = useState("")
     const [filteredProduct, setFilteredProduct] = useState("")
-    const [categoryFilter, setCategoryFilter] = useState([
-        {id: 1, value: "american", isChecked: false},
-        {id: 2, value: "pilsen", isChecked: false}, 
-        {id: 3, value: "belgian", isChecked: false},
-        {id: 4, value: "german", isChecked: false}
-    ])
-    const [filterCheck, setFilterCheck] = useState(categoryFilter)
 
 
 
@@ -31,30 +24,9 @@ const ProductSection = () => {
         setFilteredProduct(selectedProducts[0])
     }
 
-    const onCheck = (id) => {
-      
-        setFilterCheck((prev) => {
-            prev.map((filter) => {
-                if (filter.id === id) {
-                 filter.isChecked = !filter.isChecked} 
-            })
-        })   
-    }
-
-
-
-
-    
-
-
     return <>
         <input type="text" className="search__input"  value={searchInputValue} onChange={onInputChange}></input>
-        {categoryFilter.map((category) => (
-            <div className="checkbox_filter" key={category.id}>
-                <label htmlFor={category.value} >{category.value}</label>
-                <input type="checkbox" name={category.value}  checked={category.isChecked} onChange={() => onCheck(category.id)}/>
-            </div>
-        ))}
+        
         <div className="product__page">
             <div className="selected__product"> 
                 <ProductInfo data={filteredProduct}/>
